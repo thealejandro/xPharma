@@ -1,0 +1,147 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "xacode/xpharma",
+    "version": "1.0.1",
+    "type": "project",
+    "description": "xPharma is a pharmacy management system built with Laravel and React",
+    "keywords": [
+        "xacode",
+        "pharmacy",
+        "pharmacy management",
+        "pharmacy system",
+        "pharmacy management system",
+        "pharmacy software",
+        "pharmacy app",
+        "pharmacy website",
+        "pharmacy online",
+        "pharmacy store",
+        "pharmacy shop",
+        "pharmacy inventory",
+        "pharmacy stock",
+        "pharmacy database",
+        "pharmacy tracking",
+        "pharmacy order",
+        "pharmacy orders",
+        "pharmacy customer",
+        "pharmacy customers",
+        "pharmacy sales",
+        "pharmacy sales",
+        "xacode pharmacy",
+        "xacode pharmacy management",
+        "xacode pharmacy system",
+        "xacode pharmacy management system",
+        "xacode pharmacy software",
+        "xacode pharmacy app",
+        "xacode pharmacy website",
+        "xacode pharmacy online",
+        "xacode pharmacy store",
+        "xacode pharmacy shop",
+        "xacode pharmacy inventory",
+        "xacode pharmacy stock",
+        "xacode pharmacy database",
+        "xacode pharmacy tracking",
+        "xacode pharmacy order",
+        "xacode pharmacy orders",
+        "xacode pharmacy customer",
+        "xacode pharmacy customers",
+        "xacode pharmacy sales",
+        "xacode pharmacy sales",
+        "laravel",
+        "inertiajs",
+        "react",
+        "reactjs",
+        "reactjs",
+        "react framework",
+        "reactjs framework",
+        "react starter",
+        "reactjs starter",
+        "react kit",
+        "reactjs kit",
+        "kit"
+    ],
+    "homepage": "https://github.com/xacode/xpharma",
+    "support": {
+        "issues": "https://github.com/xacode/xpharma/issues",
+        "source": "https://github.com/xacode/xpharma"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "thealejandro",
+            "email": "thealejandro@xacode.dev",
+            "role": "Developer & Maintainer of xPharma ERP System"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "inertiajs/inertia-laravel": "^2.0",
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^2.10.1",
+        "laravel/workos": "^0.1.0",
+        "tightenco/ziggy": "^2.4"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.18",
+        "laravel/sail": "^1.41",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
+        ],
+        "dev:ssr": [
+            "npm run build:ssr",
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"php artisan inertia:start-ssr\" --names=server,queue,logs,ssr"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
