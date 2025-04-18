@@ -27,6 +27,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('purchase_validations', function (Blueprint $table) {
+            $table->dropForeign(['purchase_item_id']);  // Drop foreign key
+            $table->dropForeign(['verified_by']);   // Drop foreign key
+        });
         Schema::dropIfExists('purchase_validations');
     }
 };
