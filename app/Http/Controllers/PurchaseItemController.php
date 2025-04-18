@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PurchaseDetail;
+use App\Models\PurchaseItem;
 use Illuminate\Http\Request;
 
-class PurchaseDetailController extends Controller
+class PurchaseItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PurchaseDetailController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PurchaseDetail $purchaseDetail)
+    public function show(PurchaseItem $purchaseItem)
     {
         //
     }
@@ -42,7 +42,7 @@ class PurchaseDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PurchaseDetail $purchaseDetail)
+    public function edit(PurchaseItem $purchaseItem)
     {
         //
     }
@@ -50,7 +50,7 @@ class PurchaseDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PurchaseDetail $purchaseDetail)
+    public function update(Request $request, PurchaseItem $purchaseItem)
     {
         //
     }
@@ -58,7 +58,7 @@ class PurchaseDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PurchaseDetail $purchaseDetail)
+    public function destroy(PurchaseItem $purchaseItem)
     {
         //
     }
