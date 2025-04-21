@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('sale_id')->constrained('sales')->onDelete('cascade');  // si es null, se asume que el cliente es el usuario
+            $table->date('issue_date'); // fecha de emisión de la factura
+            $table->string('status', 20)->default('issued'); // estado de la factura (issued, paid, canceled)
+            $table->unsignedBigInteger('certifier_id')->nullable(); // usuario que certifica la factura
+            $table->timestamps(); // fecha de factura
         });
     }
 

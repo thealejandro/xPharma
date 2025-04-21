@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('canceled_invoices', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('invoice_id')->constrained('invoices')->onDelete('cascade'); // si es null, se asume que el cliente es el usuario
+            $table->text('reason')->nullable(); // razón de cancelación
+            $table->date('canceled_at'); // fecha de cancelación
+            $table->foreignId('canceled_by')->constrained('users'); // usuario que cancela la factura
             $table->timestamps();
         });
     }

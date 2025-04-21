@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('product_presentations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Assuming you have a products table
+            $table->foreignId('presentation_id')->constrained()->onDelete('cascade'); // Assuming you have a presentations table
+            $table->integer('unit_quantity'); // factor
+            $table->decimal('sale_price', 10, 2)->nullable(); // se puede autocalcular // precio venta de la compra
+            $table->boolean('active')->default(true); // estado de la presentación
             $table->timestamps();
         });
     }
